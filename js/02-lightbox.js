@@ -24,6 +24,6 @@ imageGallery.insertAdjacentHTML('afterbegin', imageList);
 let ligthBox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionsPosition: 'botton',
-    captionsDelay: '250',
+    captionDelay: '250',
 
 });
