@@ -31,14 +31,22 @@ imageGallery.addEventListener('click', getOriginalImage);
 function getOriginalImage(event) {
     event.preventDefault();
 
-    if (!event.target.className === 'gallery-item') {
-        return;
-    }
-    else {
+    if (event.target.classList.value === 'gallery__image') {
         const instance = basicLightbox.create(`
-                <img src="assets/images/image.png" width="800" height="600">
-            `)
-        instance.show(() => );
- 
+        <img src="${event.target.dataset.source}" width="800" height="600">
+        `);
+
+        instance.show();
+        
+        document.addEventListener('keydown', readingKey);
+    
+        function readingKey(event) {
+            if (event.code === 'Escape') {
+                instance.close();
+                imageGallery.removeEventListener('keydown', readingKey);
+
+            }
+
+        }
     }
 }
