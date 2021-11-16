@@ -38,7 +38,7 @@ function getOriginalImage(event) {
 
         instance.show();
         
-        document.addEventListener('keydown', readingKey);
+        imageGallery.addEventListener('keydown', readingKey);
     
         function readingKey(event) {
             if (event.code === 'Escape') {
